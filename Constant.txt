@@ -1,0 +1,5 @@
+public class Constant {
+	public static string REMOTE_URL = 'https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json';
+    public static string GET = 'GET';
+    public static string APPLICATION_JSON = 'application/json';
+}

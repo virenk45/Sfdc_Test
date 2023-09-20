@@ -1,0 +1,22 @@
+//Test class - BankDetailHandlerTest
+public class BankDetailHandler {
+
+    @AuraEnabled
+    public static String getBankDetails() {
+        try {
+            //API Callout to get JSON from endpoint       
+            HttpRequest req = new HttpRequest();
+            req.setEndpoint(Constant.REMOTE_URL);
+            req.setMethod(Constant.GET);
+            req.setHeader('Accept', Constant.APPLICATION_JSON);
+            req.setHeader('Content-Type', Constant.APPLICATION_JSON);
+        	//Send the request
+            HttpResponse res = new Http().send( req );
+            //send back the response
+            return res.getBody();
+        }catch(Exception ex) {
+            throw new AuraHandledException(ex.getMessage());
+        }
+        
+    }
+}
